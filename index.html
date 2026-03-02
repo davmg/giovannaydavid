@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,426 +8,50 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
-    
-
-
 </head>
 <body>
-    <audio id="background-music" loop autoplay>
-        <source src="music/mi-vida-entera.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <div id="carousel">
-        <div class="carousel-track">
-            <div class="carousel-slide">
-                <img src="imgs/foto1.jpg" alt="Slide 1">
-            </div>
-            <div class="carousel-slide">
-                <img src="imgs/foto2.jpg" alt="Slide 2">
-            </div>
-            <div class="carousel-slide">
-                <img src="imgs/foto3.jpg" alt="Slide 3">
-            </div>
+    <div id="envelope-page">
+        <div id="envelope-title" class="display-vertical" style="align-items: center;text-align: center;">
+            <h2 id="guest-names" class="highlight-text">Lina y Víctor,</h2>
+            <h1 id="main-title" class="subtitle-text">¡Nos casamos!</h1>
         </div>
-        <div class="color-overlay carousel-blur-overlay"></div>
-        <div class="carousel-overlay">
-            <img class="center-image" src="imgs/monograma.png" alt="Giovanna y David">
-            <h2 class="bottom-text highlight-text">Mayo 24, 2026</h2>
+        <div id="envelope">
+            <img id="envelope-inside" src="imgs/envelope/inside.png" >
+            <img id="envelope-card" src="imgs/envelope/card.png">
+            <img id="envelope-bottom" src="imgs/envelope/bottom.png" alt="">
+            <img id="envelope-flap" src="imgs/envelope/flap.png" alt="">
+            <img id="envelope-seal" src="imgs/envelope/seal.png" alt="">
+            <p id="text-open" class="body-text">Abrir invitación</p>
         </div>
+        <img src="imgs/monograma-verde.png" class="img-100">
     </div>
-
-    <nav>
-        <div id="nav-bg" class="blur-overlay">
-        </div>
-        <div class="button-nav-container">
-            <a id="menu-button" class="button-nav" href="#menu">
-                <img src="imgs/icn-menu.png" alt="">
-                
-            </a>
-        </div>
-        <div class="button-nav-container">
-            <a id="button-home" class="button-nav" href="">
-                <img src="imgs/monogram-home.png" alt="">
-            </a>
-        </div>
-        <div class="button-nav-container">
-            <a id="music-control" class="button-nav" href="">
-                <div id="pause-icon" class="animated-pause-icon" style="display: none;">
-                    <div class="pause-bar"></div>
-                    <div class="pause-bar"></div>
-                    <div class="pause-bar"></div>
-                    <div class="pause-bar"></div>
-                    <div class="pause-bar"></div>
-                </div>
-                <img id="play-icon" src="imgs/icn-play.png" alt="">
-                <p style="display: none;"></p>
-            </a>
-        </div>
-    </nav>
-
-    <div id="menu">
-        <a id="close-menu" class="button-nav">
-            <img src="imgs/icn-close.png" alt="">        
-        </a>
-        <a class="menu-item highlight-text" href="#date-container">Datos del evento</a>
-        <a class="menu-item highlight-text" href="#timeline">Itinerario</a>
-        <a class="menu-item highlight-text" href="#tips">A tener en cuenta</a>
-        <a class="menu-item highlight-text" href="#dress-code">Código de vestuario</a>
-        <a class="menu-item highlight-text" href="#rsvp">Confirmación de asistencia</a>
-    </div>
-
-    <section class="display-vertical" id="intro-text" style="gap: 22px;">
-        <p class="body-text">Con el corazón lleno de amor, hemos decidido unir nuestras  vidas en matrimonio.</p>
-        <p class="body-text">Este día marca el inicio de un nuevo capítulo en nuestra historia,  una promesa de caminar juntos y construir un futuro de la mano.</p>
-        <p class="body-text">Queremos compartir esta bendición con ustedes, quienes han sido parte importante de nuestro camino y hoy son testigos de nuestro amor.</p>
-        <img src="imgs/placeholder.png" alt="">
-    </section>
-    <div class="horizontal-separator-container">
-        <div class="horizontal-separator"></div>
-    </div>
-    <section id="date-container" class="display-horizontal">
-        <p class="body-text">Domingo</p>
-        <div class="vertical-separator"></div>
-        <div class="highlight-text" style="display: flex; flex-direction: column; align-items: center; gap: 0px;">
-            <p style="font-size: 16px; line-height: 0px;">Mayo</p>
-            <p style="font-size: 56px; line-height: 44px;">24</p>
-            <p style="font-size: 18px;">2026</p>
-        </div>
-        <div class="vertical-separator"></div>
-        <p class="body-text">2:30 pm</p>
-    </section>
-    <div class="horizontal-separator-container">
-        <div class="horizontal-separator"></div>
-    </div>
-    <section id="guests">
-        <p class="body-text">Con cariño hemos reservado</p>
-        <p id="seats" class="highlight-text" style="color: var(--green-primary); font-size: 34px;">2 lugares</p>
-        <p id="guest-names" class="subtitle-text">para ustedes, Lina y Victor</p>
-    </section>
-    <section id="venue" class="display-horizontal bg-dark">
-        <img src="imgs/placeholder.png" alt="">
-        <div class="display-vertical">
-            <div class="display-vertical">
-                <p class="body-text">Ceremonia y tardeo</p>
-                <p class="highlight-text">Hacienda Pampalinda</p>
-                <p class="body-text">Km. 4, vía Jamundí-Potrerito</p>
-            </div>
-            <a class="button" style="margin-top: 12px;" href="https://www.waze.com/en/live-map/directions/hacienda-pampalinda-km-4-via-potrerito?place=w.185729056.1857552706.5431776">Ver ubicación</a>
-        </div>
-    </section>
-    <section class="photo-container">
-        <img src="imgs/foto2.jpg">
-    </section>
-    <section id="timeline">
-        <h2 class="highlight-text">Itinerario</h2>
-        <div id="timeline-container">
-            <div class="event-row display-horizontal">
-                <div class="event-active">
-                    <img src="imgs/placeholder.png" alt="">
-                    <p class="subtitle-text">Ceremonia</p>
-                    <p class="body-text" style="font-size: 14px">Nuestro sí para siempre</p>
-                    <p class="highlight-text">2:30 pm</p>
-                </div>
-                <div class="event-vertical-separator">
-                    <div class="event-dot"></div>
-                </div>
-                <div class="event-empty"></div>
-            </div>
-            <div class="event-row display-horizontal">
-                <div class="event-empty"></div>
-                <div class="event-vertical-separator">
-                    <div class="event-dot"></div>
-                </div>
-                <div class="event-active">
-                    <img src="imgs/placeholder.png" alt="">
-                    <p class="subtitle-text">Aperitivo</p>
-                    <p class="body-text" style="font-size: 14px">Para refrescarnos y compartir</p>
-                    <p class="highlight-text">4:00 pm</p>
-                </div>
-            </div>
-            <div class="event-row display-horizontal">
-                <div class="event-active">
-                    <img src="imgs/placeholder.png" alt="">
-                    <p class="subtitle-text">Brindis</p>
-                    <p class="body-text" style="font-size: 14px">Por el amor que nos une</p>
-                    <p class="highlight-text">4:30 pm</p>
-                </div>
-                <div class="event-vertical-separator">
-                    <div class="event-dot"></div>
-                </div>
-                <div class="event-empty"></div>
-            </div>
-            <div class="event-row display-horizontal">
-                <div class="event-empty"></div>
-                <div class="event-vertical-separator">
-                    <div class="event-dot"></div>
-                </div>
-                <div class="event-active">
-                    <img src="imgs/placeholder.png" alt="">
-                    <p class="subtitle-text">Fotos</p>
-                    <p class="body-text" style="font-size: 14px">Todos en un mismo recuerdo</p>
-                    <p class="highlight-text">5:00 pm</p>
-                </div>
-            </div>
-            <div class="event-row display-horizontal">
-                <div class="event-active">
-                    <img src="imgs/placeholder.png" alt="">
-                    <p class="subtitle-text">Tardeo</p>
-                    <p class="body-text" style="font-size: 14px">Sabores que cuentan nuestra historia</p>
-                    <p class="highlight-text">5:30 pm</p>
-                </div>
-                <div class="event-vertical-separator">
-                    <div class="event-dot"></div>
-                </div>
-                <div class="event-empty"></div>
-            </div>
-            <div class="event-row display-horizontal">
-                <div class="event-empty"></div>
-                <div class="event-vertical-separator">
-                    <div class="event-dot"></div>
-                </div>
-                <div class="event-active">
-                    <img src="imgs/placeholder.png" alt="">
-                    <p class="subtitle-text">Agüelulo</p>
-                    <p class="body-text" style="font-size: 14px; font-style: italic;">♬ Hagamos lo que diga el corazón ♬</p>
-                    <p class="highlight-text">6:00 pm</p>
-                </div>
-            </div>
-            <div class="event-row display-horizontal">
-                <div class="event-active">
-                    <img src="imgs/placeholder.png" alt="">
-                    <p class="subtitle-text">Despedida</p>
-                    <p class="body-text" style="font-size: 14px">Que el camino de regreso sea tan lindo como este día</p>
-                    <p class="highlight-text">8:00 pm</p>
-                </div>
-                <div class="event-vertical-separator">
-                    <div class="event-dot"></div>
-                </div>
-                <div class="event-empty"></div>
-            </div>
-        </div>
-    </section>
-    <div class="horizontal-separator-container">
-        <div class="horizontal-separator"></div>
-    </div>
-    <section id="tips">
-        <h2 class="highlight-text">A tener en cuenta</h2>
-        <div id="tips-container">
-            <div class="tip display-horizontal">
-                <img src="imgs/placeholder.png" alt="">
-                <div class="tip-content">
-                    <p class="subtitle-text">Tiempo de trayecto</p>
-                    <p class="body-text">Les sugerimos salir con anticipación, ya que podrían presentarse congestiones en la vía (desde el sur de Cali, 1 hora aproximadamente).</p>
-                </div>
-            </div>
-            <div class="tip display-horizontal">
-                <img src="imgs/placeholder.png" alt="">
-                <div class="tip-content">
-                    <p class="subtitle-text">Inicio de ceremonia</p>
-                    <p class="body-text">La ceremonia iniciará puntualmente. Queremos que vivas cada momento con nosotros.</p>
-                </div>
-            </div>
-            <div class="tip display-horizontal">
-                <img src="imgs/placeholder.png" alt="">
-                <div class="tip-content">
-                    <p class="subtitle-text">Transporte</p>
-                    <p class="body-text">Recomendamos asistir en vehículo propio o previamente coordinado. Al ser zona rural, no llegan servicios de plataformas de transporte.</p>
-                </div>
-            </div>
-            <div class="tip display-horizontal">
-                <img src="imgs/placeholder.png" alt="">
-                <div class="tip-content">
-                    <p class="subtitle-text">Ruta de llegada</p>
-                    <p class="body-text">Para una mejor llegada, pueden apoyarse en la ubicación compartida a través de Waze (la ruta en Google maps puede ser imprecisa) o pueden consultarnos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="photo-container">
-        <img src="imgs/foto2.jpg">
-    </section>
-    <section id="dress-code" style="gap: 32px;">
-        <div class="display-vertical" style="text-align: center; gap: 8px; align-items: center;">
-            <h2 class="highlight-text">Código de vestuario</h2>
-            <p class="body-text">Queremos que este día esté lleno de color y elegancia.</p>
-        </div>
-        <div class="dress-code-item display-horizontal">
-            <div class="dress-code-content">
-                <p class="subtitle-text">Mujeres</p>
-                <ul class="body-text">
-                    <li>Vestido largo en colores alegres.</li>
-                    <li>Se reserva el blanco para la novia.</li>
-                </ul>
-            </div>
-            <img src="imgs/placeholder.png" alt="">
-        </div>
-        <div class="dress-code-item display-horizontal">
-            <div class="dress-code-content">
-                <p class="subtitle-text">Hombres</p>
-                <ul class="body-text">
-                    <li>Traje formal (indispensable saco y pantalón de vestir).</li>
-                    <li>Corbata opcional. </li>
-                    <li>Evitar guayabera y zapatos deportivos.</li>
-                </ul>
-            </div>
-            <img src="imgs/placeholder.png" alt="">
-        </div>
-        <a class="button" href="https://www.pinterest.com/pin/4414899137375839/">Ver referencias</a>
-    </section>
-    <section id="gifts" class="bg-dark display-horizontal">
-        <img src="imgs/placeholder.png" alt="">
-        <div class="display-vertical">
-            <p class="body-text">Tu compañía es nuestro mejor regalo. Pero si deseas hacernos un obsequio, tendremos</p>
-            <p class="highlight-text">buzón de sobres</p>
-        </div>
-    </section>
-    <section id="counter-container" class="display-vertical" style="align-items: center;">
-        <div class="color-overlay"></div>
-        <h2 class="subtitle-text" style="color: white; z-index: 10;">Faltan</h2>
-        <div id="units-container"class="display-horizontal">
-            <div class="counter-unit">
-                <p id="num-d" class="num-unit highlight-text">00</p>
-                <p id="let-d">días</p>
-            </div>
-            <div class="counter-unit">
-                <p id="num-h" class="num-unit highlight-text">00</p>
-                <p id="let-h">horas</p>
-            </div>
-            <div class="counter-unit display-vertical">
-                <p id="num-m" class="num-unit highlight-text">00</p>
-                <p id="let-m">min.</p>
-            </div>
-        </div>
-    </section>
-    <section id="rsvp" class="display-vertical">
-        <p class="body-text">Nos encantará saber que estarás.</p>
-        <p class="highlight-text">Agradecemos confirmar tu asistencia antes del 15 de abril</p>
-        <div class="button-group display-horizontal">
-            <a class="button" href="https://forms.gle/2ZtLh7n9j3yVZs5bA">Confirmar con Gio</a>
-            <a class="button" href="https://forms.gle/2ZtLh7n9j3yVZs5bA">Confirmar con David</a>
-        </div>
-    </section>
-    <div class="horizontal-separator-container">
-        <div class="horizontal-separator"></div>
-    </div>
-    <section id="closing" class="display-vertical" style="align-items: center; gap: 32px;">
-        <p class="body-text">Comienza nuestra historia como esposos y queremos escribir este capítulo con ustedes.</p>
-        <img src="imgs/monograma-verde.png" alt="">
-    </section>
 
     <script>
-        const carouselTrack = document.querySelector('.carousel-track');
-        const slides = document.querySelectorAll('.carousel-slide');
-
-        // Duplicate slides for seamless loop
-        slides.forEach(slide => {
-            const clone = slide.cloneNode(true);
-            carouselTrack.appendChild(clone);
-        });
-
-        // Reset animation for infinite loop
-        carouselTrack.addEventListener('animationiteration', () => {
-            carouselTrack.style.animation = 'none';
-            setTimeout(() => {
-                carouselTrack.style.animation = 'scroll 10s linear infinite';
-            }, 10);
-        });
-
-        // Smooth scroll to carousel on button-home click
-        const buttonHome = document.getElementById('button-home');
-        if (buttonHome) {
-            buttonHome.addEventListener('click', (e) => {
-                e.preventDefault();
-                const carousel = document.getElementById('carousel');
-                const offset = 100;
-                const targetPosition = carousel.offsetTop - offset;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-            });
-        }
-
-
-    // Smooth scroll for menu items
-    const menuItems = document.querySelectorAll('#menu .menu-item');
-    const menu = document.getElementById('menu');
-    const closeMenu = document.getElementById('close-menu');
-    const menuButton = document.getElementById('menu-button');
-
-    menuItems.forEach(item => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = item.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                const offset = 100;
-                const targetPosition = targetElement.offsetTop - offset;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-            }
-            // Close menu after clicking
-            if (menu) {
-                menu.classList.remove('open');
-            }
-        });
-    });
-
-    // Menu toggle functionality
-    if (menuButton) {
-        menuButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (menu) {
-                menu.classList.toggle('open');
-            }
-        });
-    }
-
-    if (closeMenu) {
-        closeMenu.addEventListener('click', (e) => {
-            console.log('close menu clicked');
-            e.preventDefault();
-            if (menu) {
-                menu.classList.remove('open');
-            }
-        });
-    }
-
-        // Music player control
-        const musicControl = document.getElementById('music-control');
-        const backgroundMusic = document.getElementById('background-music');
-        let isPlaying = false;
-        let autoPlayAttempted = false;
-
-        if (musicControl && backgroundMusic) {
-            // Auto-play on first user interaction
-            const enableAutoPlay = () => {
-                if (!autoPlayAttempted) {
-                    autoPlayAttempted = true;
-                    backgroundMusic.play().then(() => {
-                        isPlaying = true;
-                    }).catch(() => {});
-                    document.removeEventListener('click', enableAutoPlay);
-                    document.removeEventListener('touchstart', enableAutoPlay);
-                }
-            };
-            
-            document.addEventListener('click', enableAutoPlay);
-            document.addEventListener('touchstart', enableAutoPlay);
-            
-            musicControl.addEventListener('click', (e) => {
-                e.preventDefault();
-                const pauseIcon = document.getElementById('pause-icon');
-                const playIcon = musicControl.querySelector('#play-icon');
-                if (isPlaying) {
-                    backgroundMusic.pause();
-                    pauseIcon.style.display = 'none';
-                    playIcon.style.display = 'block';
-                    musicControl.querySelector('p').textContent = 'Play';
-                    isPlaying = false;
-                } else {
-                    backgroundMusic.play();
-                    pauseIcon.style.display = 'flex';
-                    playIcon.style.display = 'none';
-                    musicControl.querySelector('p').textContent = 'Pausa';
-                    isPlaying = true;
-                }
+        // Envelope opening animation
+        const envelopeEl = document.getElementById('envelope');
+        const flapEl = document.getElementById('envelope-flap');
+        const cardEl = document.getElementById('envelope-card');
+        
+        if (envelopeEl && flapEl) {
+            envelopeEl.addEventListener('click', () => {
+                flapEl.classList.add('opening');
+                cardEl.classList.add('opening');
+                envelopeEl.classList.add('opening');
+                
+                // Redirect to invitacion.html after 3 seconds (1s animation + 2s delay)
+                const params = new URLSearchParams(window.location.search);
+                const guestId = params.get("id");
+                
+                setTimeout(() => {
+                    // Start fade-out animation (1s duration)
+                    document.body.classList.add('fade-out');
+                    
+                    // Redirect after fade-out completes
+                    setTimeout(() => {
+                        const redirectUrl = guestId ? `invitacion.html?id=${guestId}` : 'invitacion.html';
+                        window.location.href = redirectUrl;
+                    }, 1000);
+                }, 2000);
             });
         }
 
@@ -438,7 +62,6 @@
                 const guestId = params.get("id");
 
                 const nameEl = document.getElementById("guest-names");
-                const seatsEl = document.getElementById("seats");
 
                 // Robust CSV parser (handles quoted commas)
                 function parseCSV(text) {
@@ -498,8 +121,7 @@
                 async function init() {
 
                     if (!guestId) {
-                        nameEl.innerHTML = "Invitation not found.";
-                        seatsEl.innerHTML = "";
+                        nameEl.innerHTML = "Hubo un error con tu invitación. Por favor revisa el enlace que te enviamos.";
                         return;
                     }
 
@@ -507,49 +129,14 @@
                     const guest = guests.find(g => g.id === guestId);
 
                     if (!guest) {
-                        nameEl.innerHTML = "Invitation not found.";
-                        seatsEl.innerHTML = "";
+                        nameEl.innerHTML = "Hubo un error con tu invitación. Por favor revisa el enlace que te enviamos.";
                         return;
                     }
                     console.log(guest);
-                    nameEl.innerHTML = 'para ' + (guest.seats > 1 ? 'ustedes' : 'ti') + ', ' + guest.name;
-                    seatsEl.innerHTML = `${guest.seats} lugar` + (guest.seats > 1 ? 'es' : '');
+                    nameEl.innerHTML = guest.name + ',';
                 }
 
                 init();
         });
-
-
-    </script>
-    <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date('2026-05-24 14:30:00').getTime();
-        console.log(countDownDate);
-        // Update the count down every 1 second
-        var x = setInterval(function() {
-        calcular();
-        }, 1000);
-
-        function calcular(){
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                
-                // Display the result in the element with id="demo"
-            document.getElementById("num-d").innerHTML = days;
-            document.getElementById("let-d").innerHTML = (days!=1?"días":"día");
-            document.getElementById("num-h").innerHTML = hours;
-            document.getElementById("let-h").innerHTML = (hours!=1?"horas":"hora");
-            document.getElementById("num-m").innerHTML = minutes;
-        }
-
     </script>
 </body>
-</html>

@@ -30,6 +30,32 @@ body {
     align-items: center;
 }
 
+body.fade-out {
+    animation: fadeOut 1s ease-in forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+body.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 section {
     padding: var(--padding-v) var(--padding-h);
     display: flex;
@@ -56,7 +82,7 @@ section {
     color: var(--text-dark);
     font-family: var(--serif);
     font-size: 26px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 27px;
 }
 
@@ -73,6 +99,7 @@ section {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+    width: 100%;
 }
 
 .display-vertical {
@@ -268,12 +295,6 @@ nav {
     z-index: 10;
 }
 
-.carousel-blur-overlay {
-    backdrop-filter: blur(24px);
-    -webkit-mask-image: linear-gradient(to middle, black, transparent);
-    mask-image: linear-gradient(to middle, black, transparent);
-}
-
 .center-image {
     max-width: 245px;
     object-fit: cover;
@@ -291,7 +312,7 @@ nav {
     display: flex;
     width: 100%;
     height: 100%;
-    animation: scroll 10s linear infinite;
+    animation: scroll 40s linear infinite;
 }
 
 @keyframes scroll {
@@ -299,7 +320,7 @@ nav {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-300%);
     }
 }
 
@@ -323,8 +344,19 @@ nav {
     width: 100%;
 }
 
+.img-100{
+    width: 100px;
+    object-fit: cover;
+}
+
+.img-72{
+    width: 72px;
+    object-fit: cover;
+}
+
 #intro-text{
     margin-top: -50px;
+    align-items: center;
 }
 
 .horizontal-separator-container {
@@ -337,8 +369,13 @@ nav {
     border-top: 1px solid var(--text-light);
 }
 
+#guest-names{
+    text-align: center;
+}
+
+
 #seats{
-    margin-bottom: 4px;
+    margin: 4px 0 6px;
 }
 
 .event-row{
@@ -386,7 +423,7 @@ nav {
 }
 
 .event-active img{
-    margin-top: -30px;
+    margin-top: -60px;
 }
 
 .event-row:first-child{
@@ -439,7 +476,7 @@ ul{
     width: 100%;
     height: 100%;
     background-color: #2E251C;
-    opacity: 0.4;
+    opacity: 0.6;
 }
 
 .button-group{
@@ -500,5 +537,129 @@ ul{
     /* Paddings */
     --padding-v: 40px;
     --padding-h: 32px;
+    }
+}
+
+#envelope-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    padding: 24px;
+    background: #E0D7C5;
+   
+}
+
+#envelope-page #guest-names{
+    color: var(--green-primary);
+}
+
+#envelope {
+    position: relative;
+    width: 300px;
+    aspect-ratio: 1 / 1.12;
+    transform: translateY(-40px) rotate(0deg);
+}
+
+#envelope.opening {
+    animation: moveEnvelope 1s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+}
+
+@keyframes moveEnvelope {
+    0% {
+        transform: translateY(-40px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(-5deg);
+    }
+}
+
+#envelope img {
+    position: absolute;
+    width: 100%;
+}
+
+#envelope-inside {
+    bottom: 0;
+    z-index: 0;
+}
+
+#envelope-seal {
+    bottom: 0;
+    z-index: 7;
+}
+
+#envelope-bottom {
+    bottom: 0;
+    z-index: 4;
+}
+
+#envelope-flap {
+    bottom: 0;
+    transform-origin: top center;
+    z-index: 6;
+}
+
+#envelope-flap.opening {
+    animation: openFlap 1s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+}
+
+@keyframes openFlap {
+    0% {
+        transform: scaleY(1);
+        z-index: 6;
+    }
+    100% {
+        transform: scaleY(-1);
+        z-index: 0;
+    }
+}
+
+#envelope-card{
+    bottom: 0;
+    width: 90%!important;
+    left: 5%;
+    transform: rotate(0deg);
+    z-index: 3;
+}
+
+#envelope-card.opening{
+     animation: openCard 1s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+}
+
+@keyframes openCard {
+    0% {
+        bottom: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        bottom: 90px;
+        transform: rotate(5deg);
+    }
+}
+
+#text-open{
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--text-light);
+}
+
+#envelope.opening #text-open{
+    animation: fadeOutText 0.5s ease-out forwards;
+}
+
+@keyframes fadeOutText {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
