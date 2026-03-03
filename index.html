@@ -61,6 +61,7 @@
                 
                 setTimeout(() => {
                     // Start fade-out animation (1s duration)
+                    document.body.classList.remove('fade-in');
                     document.body.classList.add('fade-out');
                     
                     // Redirect after fade-out completes
@@ -74,6 +75,9 @@
 
         //Read CSV guests
         document.addEventListener("DOMContentLoaded", function () {
+
+            // Apply fade-in animation when page loads
+                document.body.classList.add('fade-in');
 
                 const params = new URLSearchParams(window.location.search);
                 const guestId = params.get("id");

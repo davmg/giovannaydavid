@@ -270,6 +270,10 @@ nav {
     transition-delay: 0.3s;
 }
 
+#menu.open .menu-item:nth-child(7) {
+    transition-delay: 0.35s;
+}
+
 #close-menu{
     background: #FFFFFFCC;
 }

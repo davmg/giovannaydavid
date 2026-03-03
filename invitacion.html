@@ -8,6 +8,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="/imgs/favicon.png">
+
+    <!-- Other meta tags like title, description, etc. -->
+
+    <meta property="og:title" content="Giovanna y David" />
+    <meta property="og:type" content="website" /> <!-- or 'article', 'blog', 'video.movie', etc. -->
+    <meta property="og:image" content="https://davmg.github.io/giovannaydavid/imgs/ogimage.png" />
+
+    <!-- Optional but recommended tags -->
+    <meta property="og:description" content="¡Nos vamos a casar!" />
+    <meta property="og:image:width" content="700" />
+    <meta property="og:image:height" content="520" />
 </head>
 <body style="opacity: 0;">
     <audio id="background-music" loop>
@@ -83,6 +96,7 @@
         <a id="close-menu" class="button-nav">
             <img src="imgs/icn-close.png" alt="">        
         </a>
+        <a id="open-invitation-link" class="menu-item highlight-text" href="">Abrir invitación</a>
         <a class="menu-item highlight-text" href="#date-container">Datos del evento</a>
         <a class="menu-item highlight-text" href="#timeline">Itinerario</a>
         <a class="menu-item highlight-text" href="#tips">A tener en cuenta</a>
@@ -378,15 +392,17 @@
 
     menuItems.forEach(item => {
         item.addEventListener('click', (e) => {
-            e.preventDefault();
             const targetId = item.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
+            
+            // Only prevent default and smooth scroll if the target element exists on this page
             if (targetElement) {
+                e.preventDefault();
                 const offset = 100;
                 const targetPosition = targetElement.offsetTop - offset;
                 window.scrollTo({ top: targetPosition, behavior: 'smooth' });
             }
-            // Close menu after clicking
+            // Close menu after clicking (even if navigating away)
             if (menu) {
                 menu.classList.remove('open');
             }
@@ -475,6 +491,12 @@
 
                 const params = new URLSearchParams(window.location.search);
                 const guestId = params.get("id");
+
+                // Set up the "Abrir invitación" link to redirect with ID
+                const openInvitationLink = document.getElementById('open-invitation-link');
+                if (openInvitationLink && guestId) {
+                    openInvitationLink.href = `${window.location.origin}${window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'))}/index.html?id=${guestId}`;
+                }
 
                 const nameEl = document.getElementById("guest-names");
                 const seatsEl = document.getElementById("seats");
@@ -597,7 +619,6 @@
     <script>
         // Set the date we're counting down to
         var countDownDate = new Date('2026-05-24 14:30:00').getTime();
-        console.log(countDownDate);
         // Update the count down every 1 second
         var x = setInterval(function() {
         calcular();
