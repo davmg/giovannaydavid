@@ -634,6 +634,7 @@ ul{
     width: 300px;
     aspect-ratio: 1 / 1.12;
     transform: translateY(-40px) rotate(0deg);
+    cursor: pointer;
 }
 
 #envelope.opening {
