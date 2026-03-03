@@ -16,17 +16,34 @@
     </audio>
     <div id="carousel">
         <div class="carousel-track">
-            <div class="carousel-slide">
+            <div id="photo1" class="carousel-slide">
                 <img src="imgs/foto1.jpg" alt="Slide 1">
+                <div class="blur-overlay"></div>
+            </div>
+            <div id="photo1-h"  class="carousel-slide">
+                <img src="imgs/foto1-h.jpg" alt="Slide 1">
             </div>
             <div class="carousel-slide">
-                <img src="imgs/foto2.jpg" alt="Slide 2">
+                <img src="imgs/foto2.jpeg" alt="Slide 2">
             </div>
             <div class="carousel-slide">
                 <img src="imgs/foto3.jpg" alt="Slide 3">
             </div>
+            <div id="photo4"  class="carousel-slide">
+                <img src="imgs/foto4.jpg" alt="Slide 1">
+            </div>
+            <div id="photo4-h"  class="carousel-slide">
+                <img src="imgs/foto4-h.jpeg" alt="Slide 1">
+            </div>
+            <div id="photo5"  class="carousel-slide">
+                <img src="imgs/foto5.jpeg" alt="Slide 3">
+            </div>
+            <div id="photo5-h"  class="carousel-slide">
+                <img src="imgs/foto5-h.jpeg" alt="Slide 1">
+            </div>
         </div>
         <div class="color-overlay"></div>
+        <div class="gradient-overlay"></div>
         <div class="carousel-overlay">
             <img class="center-image" src="imgs/monograma.png" alt="Giovanna y David">
             <h2 class="bottom-text highlight-text">Mayo 24, 2026</h2>
@@ -34,7 +51,7 @@
     </div>
 
     <nav>
-        <div id="nav-bg" class="blur-overlay">
+        <div id="nav-bg">
         </div>
         <div class="button-nav-container">
             <a id="menu-button" class="button-nav" href="#menu">
@@ -113,7 +130,7 @@
         </div>
     </section>
     <section class="photo-container">
-        <img src="imgs/foto2.jpg">
+        <img src="imgs/foto6.jpeg">
     </section>
     <section id="timeline">
         <h2 class="highlight-text">Itinerario</h2>
@@ -241,7 +258,7 @@
         </div>
     </section>
     <section class="photo-container">
-        <img src="imgs/foto2.jpg">
+        <img src="imgs/foto7.jpeg">
     </section>
     <section id="dress-code" style="gap: 32px;">
         <div class="display-vertical" style="text-align: center; gap: 8px; align-items: center;">
@@ -336,8 +353,8 @@
         carouselTrack.addEventListener('animationiteration', () => {
             carouselTrack.style.animation = 'none';
             setTimeout(() => {
-                carouselTrack.style.animation = 'scroll 10s linear infinite';
-            }, 10);
+                carouselTrack.style.animation = 'scroll 50s linear infinite';
+            }, 50);
         });
 
         // Smooth scroll to carousel on button-home click
