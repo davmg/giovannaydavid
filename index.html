@@ -13,7 +13,7 @@
     <div id="envelope-page">
         <div id="envelope-title" class="display-vertical" style="align-items: center;text-align: center;">
             <h2 id="guest-names" class="highlight-text">Lina y Víctor,</h2>
-            <h1 id="main-title" class="subtitle-text">¡Nos casamos!</h1>
+            <h1 id="main-title" class="subtitle-text">¡Nos vamos a casar!</h1>
         </div>
         <div id="envelope">
             <img id="envelope-inside" src="imgs/envelope/inside.png" >
@@ -23,6 +23,11 @@
             <img id="envelope-seal" src="imgs/envelope/seal.png" alt="">
             <p id="text-open" class="body-text">Abrir invitación</p>
         </div>
+        <img src="imgs/monograma-verde.png" class="img-100">
+    </div>
+    <div id="error-message">
+        <p class="body-text" style="color: var(--text-dark);">Hubo un error con tu invitación. Por favor revisa el enlace que te enviamos.</p>
+        <img id="error-image" src="imgs/envelope/envelope-error.png" alt="">
         <img src="imgs/monograma-verde.png" class="img-100">
     </div>
 
@@ -121,7 +126,8 @@
                 async function init() {
 
                     if (!guestId) {
-                        nameEl.innerHTML = "Hubo un error con tu invitación. Por favor revisa el enlace que te enviamos.";
+                        document.getElementById("envelope-page").style.display = "none";
+                        document.getElementById("error-message").style.display = "flex";
                         return;
                     }
 
@@ -129,7 +135,8 @@
                     const guest = guests.find(g => g.id === guestId);
 
                     if (!guest) {
-                        nameEl.innerHTML = "Hubo un error con tu invitación. Por favor revisa el enlace que te enviamos.";
+                        document.getElementById("envelope-page").style.display = "none";
+                        document.getElementById("error-message").style.display = "flex";
                         return;
                     }
                     console.log(guest);

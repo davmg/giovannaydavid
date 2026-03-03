@@ -109,7 +109,7 @@
                 <p class="highlight-text">Hacienda Pampalinda</p>
                 <p class="body-text">Km. 4, vía Jamundí-Potrerito</p>
             </div>
-            <a class="button" style="margin-top: 12px;" href="https://www.waze.com/en/live-map/directions/hacienda-pampalinda-km-4-via-potrerito?place=w.185729056.1857552706.5431776">Ver ubicación</a>
+            <a class="button" style="margin-top: 12px;" target="_blank" href="https://www.waze.com/en/live-map/directions/hacienda-pampalinda-km-4-via-potrerito?place=w.185729056.1857552706.5431776">Ver ubicación</a>
         </div>
     </section>
     <section class="photo-container">
@@ -255,6 +255,7 @@
                     <li>Vestido largo en colores alegres.</li>
                     <li>Se reserva el blanco para la novia.</li>
                 </ul>
+                <a class="button" id="open-gallery-woman">Ver referencias</a>
             </div>
             <img class="img-72" src="imgs/illustrations/dress.png" alt="">
         </div>
@@ -266,11 +267,20 @@
                     <li>Corbata opcional. </li>
                     <li>Evitar guayabera y zapatos deportivos.</li>
                 </ul>
+                <a class="button" id="open-gallery-man">Ver referencias</a>
             </div>
             <img class="img-72" src="imgs/illustrations/suit.png" alt="">
         </div>
-        <a class="button" href="https://www.pinterest.com/pin/4414899137375839/">Ver referencias</a>
     </section>
+
+    <!-- Modal for image gallery -->
+    <div id="image-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="close-modal" class="modal-close">&times;</span>
+            <img id="modal-image" src="imgs/foto1.jpg">
+        </div>
+    </div>
+
     <section id="gifts" class="bg-dark display-horizontal">
         <img class="img-100" src="imgs/illustrations/chest.png" alt="">
         <div class="display-vertical">
@@ -426,6 +436,19 @@
                     isPlaying = true;
                 }
             });
+            
+            // Pause music when page loses focus (e.g., switching apps on mobile)
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden && isPlaying) {
+                    backgroundMusic.pause();
+                    const pauseIcon = document.getElementById('pause-icon');
+                    const playIcon = musicControl.querySelector('#play-icon');
+                    pauseIcon.style.display = 'none';
+                    playIcon.style.display = 'block';
+                    musicControl.querySelector('p').textContent = 'Play';
+                    isPlaying = false;
+                }
+            });
         }
 
         //Read CSV guests
@@ -516,6 +539,42 @@
                 }
 
                 init();
+        });
+
+        // Modal functionality
+        const openGalleryBtnWoman = document.getElementById('open-gallery-woman');
+        const openGalleryBtnMan = document.getElementById('open-gallery-man');
+        const imageModal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeModalBtn = document.getElementById('close-modal');
+
+        if (openGalleryBtnWoman) {
+            openGalleryBtnWoman.addEventListener('click', (e) => {
+                e.preventDefault();
+                imageModal.style.display = 'flex';
+                modalImage.src = 'imgs/ref-mujer.jpeg';
+            });
+        }
+
+        if (openGalleryBtnMan) {
+            openGalleryBtnMan.addEventListener('click', (e) => {
+                e.preventDefault();
+                imageModal.style.display = 'flex';
+                modalImage.src = 'imgs/ref-hombre.png';
+            });
+        }
+
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', () => {
+                imageModal.style.display = 'none';
+            });
+        }
+
+        // Close modal when clicking outside the image
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
         });
     </script>
     <script>
