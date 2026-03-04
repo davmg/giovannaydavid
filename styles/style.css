@@ -756,7 +756,7 @@ ul{
 }
 
 .modal-content {
-    max-width: 90%;
+    max-width: 400px;
     max-height: 90%;
     border-radius: var(--corner-radius);
     overflow: hidden;
