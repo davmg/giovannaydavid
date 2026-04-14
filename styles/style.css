@@ -411,6 +411,7 @@ nav {
 
 #seats{
     margin: 4px 0 6px;
+    text-align: center;
 }
 
 .event-row{
@@ -540,6 +541,10 @@ ul{
     gap: 4px 12px;
     flex-wrap: wrap;
     margin-top: 12px;
+}
+
+#venue{
+   justify-content: center!important;
 }
 
 #closing img{
