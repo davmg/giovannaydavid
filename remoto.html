@@ -311,14 +311,6 @@
             <img id="modal-image" src="imgs/foto1.jpg">
         </div>
     </div>
-
-    <section id="gifts" class="bg-dark display-horizontal">
-        <img class="img-100" src="imgs/illustrations/chest.png" alt="">
-        <div class="display-vertical">
-            <p class="body-text">Tu compañía es nuestro mejor regalo. Pero si deseas hacernos un obsequio, tendremos</p>
-            <p class="highlight-text">buzón de sobres</p>
-        </div>
-    </section>
     <section id="counter-container" class="display-vertical" style="align-items: center;">
         <div class="color-overlay"></div>
         <h2 class="subtitle-text" style="color: white; z-index: 10;">Faltan</h2>
@@ -337,14 +329,7 @@
             </div>
         </div>
     </section>
-    <section id="rsvp" class="display-vertical">
-        <p class="body-text">Nos encantará saber que estarás.</p>
-        <p class="highlight-text">Agradecemos confirmar tu asistencia antes del 30 de abril</p>
-        <div class="button-group display-horizontal">
-            <a id="confirm-gio" class="button" href="https://wa.me/573188235760">Confirmar con Gio</a>
-            <a id="confirm-david" class="button" href="https://wa.me/573162722850">Confirmar con David</a>
-        </div>
-    </section>
+    
     <div class="horizontal-separator-container">
         <div class="horizontal-separator"></div>
     </div>
@@ -670,15 +655,6 @@
             document.getElementById("num-m").innerHTML = minutes;
         }
 
-    </script>
-    <script>
-        //Whatsapp links
-        const urlGio = `https://api.whatsapp.com/send?phone=573188235760&text=${encodeURIComponent('Hola, confirmo mi asistencia al matrimonio ❤️')}`;
-        var aGio = document.getElementById("confirm-gio");
-        aGio.href = urlGio;
-        const urlDavid = `https://api.whatsapp.com/send?phone=573162722850&text=${encodeURIComponent('Hola, confirmo mi asistencia al matrimonio ❤️')}`;
-        var aDavid = document.getElementById("confirm-david");
-        aDavid.href = urlDavid;
     </script>
 </body>
 </html>

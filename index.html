@@ -58,18 +58,32 @@
                 // Redirect to invitacion.html after 3 seconds (1s animation + 2s delay)
                 const params = new URLSearchParams(window.location.search);
                 const guestId = params.get("id");
-                
-                setTimeout(() => {
-                    // Start fade-out animation (1s duration)
-                    document.body.classList.remove('fade-in');
-                    document.body.classList.add('fade-out');
-                    
-                    // Redirect after fade-out completes
+
+                if(guestId<100){
                     setTimeout(() => {
-                        const redirectUrl = guestId ? `invitacion.html?id=${guestId}` : 'invitacion.html';
-                        window.location.href = redirectUrl;
-                    }, 1000);
-                }, 2000);
+                        // Start fade-out animation (1s duration)
+                        document.body.classList.remove('fade-in');
+                        document.body.classList.add('fade-out');
+                        
+                        // Redirect after fade-out completes
+                        setTimeout(() => {
+                            const redirectUrl = guestId ? `invitacion.html?id=${guestId}` : 'invitacion.html';
+                            window.location.href = redirectUrl;
+                        }, 1000);
+                    }, 2000);
+                }else{
+                    setTimeout(() => {
+                        // Start fade-out animation (1s duration)
+                        document.body.classList.remove('fade-in');
+                        document.body.classList.add('fade-out');
+                        
+                        // Redirect after fade-out completes
+                        setTimeout(() => {
+                            const redirectUrl = guestId ? `remoto.html?id=${guestId}` : 'remoto.html';
+                            window.location.href = redirectUrl;
+                        }, 1000);
+                    }, 2000);
+                }
             });
         }
 
@@ -78,11 +92,11 @@
 
             // Apply fade-in animation when page loads
                 document.body.classList.add('fade-in');
+                const nameEl = document.getElementById("guest-names");
 
                 const params = new URLSearchParams(window.location.search);
                 const guestId = params.get("id");
 
-                const nameEl = document.getElementById("guest-names");
 
                 // Robust CSV parser (handles quoted commas)
                 function parseCSV(text) {
@@ -120,12 +134,11 @@
 
                 async function loadGuests() {
                     try {
-                        const response = await fetch("docs/guests.csv");
-                        const csvText = await response.text();
+                        const responseG = await fetch("docs/guests.csv");
+                        const csvTextG = await responseG.text();
+                        const parsedRowsG = parseCSV(csvTextG);
 
-                        const parsedRows = parseCSV(csvText);
-
-                        const guests = parsedRows.map(row => ({
+                        const guests = parsedRowsG.map(row => ({
                             id: row[0],
                             name: row[1],
                             seats: row[2]
@@ -139,16 +152,42 @@
                     }
                 }
 
-                async function init() {
+                async function loadRemote() {
+                    try {
+                        const responseR = await fetch("docs/remote.csv");
+                        const csvTextR = await responseR.text();
+                        const parsedRowsR = parseCSV(csvTextR);
 
-                    if (!guestId) {
+                        const remotes = parsedRowsR.map(row => ({
+                            id: row[0],
+                            name: row[1],
+                            seats: row[2]
+                        }));
+
+                        return remotes;
+
+                    } catch (error) {
+                        console.error("Error loading CSV:", error);
+                        return [];
+                    }
+                }
+
+                async function init() {
+                    if (!guestId) { //no ID in URL
                         document.getElementById("envelope-page").style.display = "none";
                         document.getElementById("error-message").style.display = "flex";
                         return;
                     }
 
-                    const guests = await loadGuests();
-                    const guest = guests.find(g => g.id === guestId);
+                    var guests;
+
+                    if (guestId<100){ //Guests
+                        guests = await loadGuests();
+                    }else{ //Remotes
+                        guests = await loadRemote();
+                    }
+
+                    guest = guests.find(g => g.id === guestId);
 
                     if (!guest) {
                         document.getElementById("envelope-page").style.display = "none";
