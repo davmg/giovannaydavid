@@ -565,7 +565,8 @@ ul{
   }
 
 #save-button{
-    flex-direction: row;
+    display: flex;
+    gap: 4px;
 }
 
 #closing img{
