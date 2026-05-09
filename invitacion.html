@@ -500,6 +500,7 @@
 
                 const nameEl = document.getElementById("guest-names");
                 const seatsEl = document.getElementById("seats");
+                const rsvp = document.getElementById("rsvp");
 
                 // Robust CSV parser (handles quoted commas)
                 function parseCSV(text) {
@@ -601,6 +602,10 @@
                     console.log(guest);
                     nameEl.innerHTML = 'para ' + (guest.seats > 1 ? 'ustedes' : 'ti') + ', ' + guest.name;
                     seatsEl.innerHTML = `${guest.seats} lugar` + (guest.seats > 1 ? 'es' : '');
+
+                    if(guest.id > 45) {
+                        rsvp.style.display = 'none';
+                    }
                 }
 
                 init();
